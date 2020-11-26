@@ -34,13 +34,13 @@ function getName($name)
 						<?php echo $acc->getError(Consta::$loginFailed); ?>
 
 						<label for="loginUsername">Username</label>
-						<input type="text" id="loginUsername" placeholder="Username" name="loginUsername" required>
+						<input type="text" id="loginUsername" placeholder="Username" name="loginUsername" value="<?php getName('loginUsername')?>" required>
 
 					</p>
 					<p>
 						<label for="loginPassword">Password</label>
 
-						<input type="password" id="loginPassword" name="loginPassword" placeholder="Password" required>
+						<input type="password" id="loginPassword" name="loginPassword" placeholder="Password"  required>
 					</p>
 					<button type="submit" name="loginButton">Login</button>
 

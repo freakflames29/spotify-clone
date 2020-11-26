@@ -72,10 +72,14 @@ body {
   height: 27px;
   line-height: 27px;
   width: 100%;
+  outline: none;
 }
 
-#inputContainer label {
+#inputContainer label 
+{
   font-size: 16px;
+  display: block;
+  margin-top: 8px;
 }
 #inputContainer button {
   background: transparent;
@@ -127,4 +131,10 @@ body {
   bac */
   /* background-image: url(../images/icons/checked.png) no-repeat; */
   /* color: #07d159; */
+}
+#inputContainer .errorMes
+{
+  color: rgb(0, 255, 85);
+  display: block;
+  font-size: 12px;
 }
