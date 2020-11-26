@@ -1,0 +1,130 @@
+html,
+body {
+  padding: 0%;
+  margin: 0%;
+  height: 100%;
+}
+#background {
+  background-image: url(../images/ds.png);
+  background-size: cover;
+  background-position: center;
+  display: table;
+  /* background-color: black; */
+  background-blend-mode: overlay;
+  height: 100%;
+  width: 100%;
+}
+#loginContainer * {
+  color: white;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  font-weight: normal;
+  line-break: 1em;
+  box-sizing: border-box;
+}
+#loginContainer {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  max-width: 1024px;
+}
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: rgb(177, 177, 177);
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+}
+
+#inputContainer {
+  width: 400px;
+  padding: 45px;
+  float: left;
+  border-right: 1px solid #999;
+}
+#inputContainer h2 {
+  text-align: center;
+}
+#inputContainer input[type="text"],
+#inputContainer input[type="email"],
+#inputContainer input[type="password"] {
+  display: block;
+  background-color: transparent;
+  border: 0;
+  border-bottom-color: currentcolor;
+  border-bottom-style: none;
+  border-bottom-width: 0px;
+  border-bottom: 1px solid #fff;
+  height: 27px;
+  line-height: 27px;
+  width: 100%;
+}
+
+#inputContainer label {
+  font-size: 16px;
+}
+#inputContainer button {
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  color: white;
+  display: block;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 20px auto;
+  height: 41px;
+  width: 100%;
+  cursor: pointer;
+}
+.hasAccounttext span {
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.hasAccounttext {
+  text-align: center;
+  cursor: pointer;
+}
+#registerForm {
+  display: none;
+}
+#loginText {
+  display: table-cell;
+  padding: 45px;
+}
+#loginText h1 {
+  color: rgb(0, 255, 85);
+  font-size: 67px;
+  font-weight: bold;
+  line-height: 67px;
+}
+#loginText h2 {
+  margin: 36px 0;
+}
+#loginText ul {
+  padding: 0px;
+  margin: 13px;
+}
+#loginText li {
+  padding: 8px;
+  font-size: 18px;
+  /* list-style-type: none; */
+  /* list-style-image: url(../images/icons/checked.png);
+  bac */
+  /* background-image: url(../images/icons/checked.png) no-repeat; */
+  /* color: #07d159; */
+}
