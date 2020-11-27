@@ -10,7 +10,7 @@ body {
   background-position: center;
   display: table;
   /* background-color: black; */
-  background-blend-mode: overlay;
+  /*background-blend-mode: overlay;*/
   height: 100%;
   width: 100%;
 }
@@ -83,7 +83,8 @@ body {
 }
 #inputContainer button {
   background: transparent;
-  border: 2px solid #fff;
+  /*border: 2px solid #fff;*/
+  border: none;
   border-radius: 20px;
   color: white;
   display: block;
@@ -93,6 +94,11 @@ body {
   height: 41px;
   width: 100%;
   cursor: pointer;
+  background-color: rgb(0, 255, 85); 
+}
+#inputContainer button:hover
+{
+  background-color: #00e04a;
 }
 .hasAccounttext span {
   font-size: 15px;
