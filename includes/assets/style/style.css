@@ -6,7 +6,7 @@ html, body {
 * {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
-    letter-spacing:0.5px;
+    letter-spacing: 0.5px;
 }
 body {
     background-color: #121212;
@@ -234,7 +234,37 @@ body {
     overflow: hidden;
     white-space: nowrap;
 }
-.gridViewItem a
-{
+.gridViewItem a {
     text-decoration: none;
+}
+/*album page style*/
+
+.entityInfo {
+    padding: 40px 0 10px 0;
+    display: inline-block;
+    width: 100%
+}
+.entityInfo .leftSection {
+    width: 30%;
+    float: left;
+    max-width: 250px
+}
+.entityInfo .leftSection img {
+    width: 100%;
+}
+.entityInfo .rightSection {
+    width: 70%;
+    padding: 36px 10px 13px 31px;
+    float: left;
+    padding: 6px 10px 5px 44px;
+    box-sizing: border-box;
+}
+.entityInfo .rightSection h2
+{
+    margin-top: 0px;
+}
+.entityInfo .rightSection span
+{
+    color: #939393;
+    font-weight: inherit;
 }

@@ -1,4 +1,4 @@
-<!-- header part -->
+	<!-- header part -->
 <!-- and nav bar -->
 <?php include 'includes/header.php';?>
 
@@ -10,22 +10,22 @@
 <div class="gridviewContainer">
 
 
-		<?php
+<?php
 
 $albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY RAND() LIMIT 10");
 
 while ($row = mysqli_fetch_array($albumQuery)) {
-    
-    echo "
-    		
-				<div class='gridViewItem'>		
-					 <a href='albums.php?id=".$row['id']."''>
 
-						<img src=" . $row['artworkPath'] . ">
-						<div class='gridViewinfo'>" . $row['title'] . "</div>
-					</a>
+              echo "
 
-				</div>";
+					<div class='gridViewItem'>
+						 <a href='albums.php?id=" . $row['id'] . "''>
+
+							<img src=" . $row['artworkPath'] . ">
+							<div class='gridViewinfo'>" . $row['title'] . "</div>
+						</a>
+
+					</div>";
 
 }
 
