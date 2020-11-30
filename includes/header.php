@@ -2,9 +2,10 @@
 include 'includes/config.php';
 include 'includes/classes/Artist.php';
 include 'includes/classes/Album.php';
+include 'includes/classes/Song.php';
 
 if (isset($_SESSION['UserLoggedin'])) {
-    $userNAME = $_SESSION['UserLoggedin'];
+	$userNAME = $_SESSION['UserLoggedin'];
 }
 // else {
 //     header("Location:register.php");
@@ -27,7 +28,7 @@ if (isset($_SESSION['UserLoggedin'])) {
 
 		<div id="topContainer">
 			<!-- nav bar -->
-			<?php  include ("includes/navbar.php"); ?>
+			<?php include("includes/navbar.php"); ?>
 
 			<!-- main view container -->
 			<div id="mainViewContainer">

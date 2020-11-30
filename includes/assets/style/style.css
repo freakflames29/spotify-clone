@@ -77,7 +77,7 @@ body {
     width: 100%;
     height: 12px;
     display: inline-flex;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 .progressBarBg {
     background-color: #404040;
@@ -85,11 +85,20 @@ body {
     width: 100%;
     border-radius: 91px;
 }
+
 .progress {
-    background-color: rgb(0, 255, 85);
+    /*background-color: rgb(0, 255, 85);*/
+    background-color: #4f4d4d;
     height: 5px;
     border-radius: 91px;
-    width: 1%;
+    width: 50%;
+    transition: 0.12s;
+}
+.progress:hover
+{
+    background-color: rgb(0, 255, 85);
+
+
 }
 .playbackBar .progressBar {
     margin-top: 3px;
@@ -225,6 +234,7 @@ body {
 }
 .gridViewItem img {
     width: 100%;
+    border-radius: 17px;
 }
 .gridViewinfo {
     font-weight: bold;
@@ -251,6 +261,7 @@ body {
 }
 .entityInfo .leftSection img {
     width: 100%;
+    border-radius: 17px;
 }
 .entityInfo .rightSection {
     width: 70%;
@@ -263,7 +274,7 @@ body {
 {
     margin-top: 0px;
 }
-.entityInfo .rightSection span
+.entityInfo .rightSection p
 {
     color: #939393;
     font-weight: inherit;
