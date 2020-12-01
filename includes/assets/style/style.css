@@ -5,6 +5,7 @@ html, body {
 }
 * {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: 'Montserrat';*/
     color: white;
     letter-spacing: 0.5px;
 }
@@ -85,7 +86,6 @@ body {
     width: 100%;
     border-radius: 91px;
 }
-
 .progress {
     /*background-color: rgb(0, 255, 85);*/
     background-color: #4f4d4d;
@@ -94,11 +94,8 @@ body {
     width: 50%;
     transition: 0.12s;
 }
-.progress:hover
-{
+.progress:hover {
     background-color: rgb(0, 255, 85);
-
-
 }
 .playbackBar .progressBar {
     margin-top: 3px;
@@ -270,12 +267,86 @@ body {
     padding: 6px 10px 5px 44px;
     box-sizing: border-box;
 }
-.entityInfo .rightSection h2
-{
+.entityInfo .rightSection h2 {
     margin-top: 0px;
 }
-.entityInfo .rightSection p
-{
+.entityInfo .rightSection p {
     color: #939393;
     font-weight: inherit;
+}
+/*tracklist styling*/
+
+.tracklist {
+    padding: 0;
+}
+.tracklistRow {
+    height: 40px;
+    padding: 15px 10px;
+    list-style: none;
+    border-radius: 10px;    
+}
+.tracklistRow span {
+    color: #909090;
+    font-weight: 200
+}
+.tracklistRow:hover {
+    background-color: #282828;
+}
+.tracklistRow .trackCount {
+    width: 8%;
+    float: left;
+}
+.tracklistRow .trackCount img {
+    width: 20px;
+    position: absolute;
+    cursor: pointer;
+    visibility: hidden;
+}
+.tracklistRow:hover .trackCount img {
+    visibility: visible;
+}
+/*.tracklistRow:hover .trackNumber
+{
+    visibility: hidden;
+}
+*/
+
+.tracklistRow .trackCount span {
+    visibility: visible;
+}
+.tracklistRow:hover .trackCount span {
+    visibility: hidden;
+}
+/*styling the song real track*/
+
+.tracklistRow .trackInfo {
+    width: 75%;
+    float: left;
+}
+.tracklistRow .trackInfo span {
+    display: block;
+}
+.tracklistRow .trackOptions {
+    width: 5%;
+    float: left;
+    text-align: right;
+}
+.tracklistRow .trackOptions img {
+    width: 15px;
+    visibility: hidden;
+}
+.tracklistRow:hover .trackOptions img {
+    width: 15px;
+    visibility: visible;
+}
+.tracklistRow .trackDuration
+{
+    width: 12%;
+    float: left;
+    text-align: center;
+}
+.tracklistRow .trackInfo .trackName
+{
+    margin-bottom: 4px;
+    color: #fff;
 }

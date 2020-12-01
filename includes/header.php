@@ -5,7 +5,7 @@ include 'includes/classes/Album.php';
 include 'includes/classes/Song.php';
 
 if (isset($_SESSION['UserLoggedin'])) {
-	$userNAME = $_SESSION['UserLoggedin'];
+    $userNAME = $_SESSION['UserLoggedin'];
 }
 // else {
 //     header("Location:register.php");
@@ -20,6 +20,9 @@ if (isset($_SESSION['UserLoggedin'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Welcome to Spotify</title>
 	<link rel="stylesheet" href="includes/assets/style/style.css">
+	<!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet"> -->
+
 </head>
 
 <body>
@@ -28,7 +31,7 @@ if (isset($_SESSION['UserLoggedin'])) {
 
 		<div id="topContainer">
 			<!-- nav bar -->
-			<?php include("includes/navbar.php"); ?>
+			<?php include "includes/navbar.php";?>
 
 			<!-- main view container -->
 			<div id="mainViewContainer">

@@ -64,6 +64,22 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 
 					</div>
 
+					<div class='trackInfo'>
+					<span class='trackName'>".$albumSong->getsongTitle()."</span>
+					<span class='SongartistName'>".$albumArtist->getName()."</span>
+
+					</div>
+
+					<div class='trackOptions'>
+						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button'>
+ 					</div>
+
+ 					<div class='trackDuration'>
+
+ 						<span class='duration'>".$albumSong->getsongDuration()."</span>
+
+ 					</div>
+
 			
 			</li>";
 			$i++;
