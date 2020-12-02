@@ -20,6 +20,9 @@ if (isset($_SESSION['UserLoggedin'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Welcome to Spotify</title>
 	<link rel="stylesheet" href="includes/assets/style/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="includes/assets/js/script.js"></script>
+	s
 	<!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
 <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet"> -->
 

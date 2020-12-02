@@ -64,7 +64,15 @@ body {
 .play img {
     height: 32px;
     width: 32px;
+    outline: none;
 }
+.pause img {
+    height: 32px;
+    width: 32px;
+    outline: none;
+    
+}
+
 .progressTime {
     color: #a0a0a0;
     font-size: 13px;
@@ -350,3 +358,4 @@ body {
     margin-bottom: 4px;
     color: #fff;
 }
+
