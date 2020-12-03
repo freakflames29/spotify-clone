@@ -19,6 +19,9 @@ $jsonSongArray = json_encode($resultSongArray);
 		audioElement=new Audio();
 
 			setTrack(currentPlaylist[0],currentPlaylist,false);
+
+
+			//!TODO mouse drag 
 	});
 
 	function setTrack(trackId,newPlaylist,play)
@@ -44,28 +47,53 @@ $jsonSongArray = json_encode($resultSongArray);
 	   $.post("includes/handlers/ajax/getArtworkJson.php",{artworkId:songParse.album},function (data)
 	    {
 	    		var artworkParse=JSON.parse(data);
-	    		console.log(artworkParse.artworkPath);
+	    		// console.log(artworkParse.artworkPath);
 	    		// $(".albumlink img").attr("src",artworkParse.artworkPath);
 	    		$(".albumArtWork").attr("src",artworkParse.artworkPath);
 
 	    });
 
 
-            audioElement.setTrack(songParse.path);
+            audioElement.setTrack(songParse);
+	     // $.post("includes/handlers/ajax/updatePlays.php",{songiD:audioElement.currentPlaying.id},function(data)
+	     // 	{
+	     // 		console.log(data);
+	     // 	});
+
+        // if(audioElement.audio.currentTime==0)
+        // {
+        //     console.log("nonno");
+        //     $.post("includes/handlers/ajax/updatePlays.php",{songiD:audioElement.currentPlaying.id});
+
+        // }
+        // else {
+        	
+        // 	console.log("dofnp");
+        // }
+
+        // playSong();
             // audioElement.play();
-        });
+      });
 		// audioElement.justrun()
         // audioElement.justrun();
-        if(play)
-        {
-		 audioElement.audio.play();
-
-        }
-
+        // if(play)
+        // {
+		//  audioElement.audio.play();
+        //
+        // }
+        // console.log(audioElement);
 
 	}
 	function  playSong()
     {
+        if(audioElement.audio.currentTime==0)
+        {
+            // console.log(audioElement);
+            $.post("includes/handlers/ajax/updatePlays.php",{songiD:audioElement.currentPlaying.id});
+
+        }
+
+
         $(".controlButton.play").hide();
         $(".controlButton.pause").show();
         audioElement.play();

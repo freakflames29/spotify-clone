@@ -99,7 +99,7 @@ body {
     background-color: #4f4d4d;
     height: 5px;
     border-radius: 91px;
-    width: 50%;
+    width:0%;
     transition: 0.12s;
 }
 .progress:hover {
