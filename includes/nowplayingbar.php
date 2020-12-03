@@ -20,14 +20,121 @@ $jsonSongArray = json_encode($resultSongArray);
 
 			setTrack(currentPlaylist[0],currentPlaylist,false);
 
+			updateVolume(audioElement.audio);
 
-			//!TODO mouse drag 
+			// preventing buttons being selected by preventDefault
+
+			$("#nowPlayingbarContainer").on("mousedown touchstart mousemove touchmove",function(e)
+			{
+					e.preventDefault();
+			});
+
+
+			//!TODO mouse drag  for progress music bar
+
+
+			$(".playbackBar .progressBar").mousedown(function()
+			{
+					mouseDown=true;
+			});
+
+			$(".playbackBar .progressBar").mousemove(function(e)
+			{
+				if (mouseDown) {
+					// set the song depending the position of mouse
+					timeFromOffset(e,this);
+
+				}
+			});
+
+			$(".playbackBar .progressBar").mouseup(function(e)
+			{
+				timeFromOffset(e,this);
+				
+			});
+
+				//for vloume bar
+			$(".volumeBar .progressBar").mousedown(function()
+			{
+					mouseDown=true;
+			});
+
+			$(".volumeBar .progressBar").mousemove(function(e)
+			{
+				if(mouseDown)
+				{
+
+				let VolumePercentage=e.offsetX/$(this).width();
+				if(VolumePercentage>=0&&VolumePercentage<=1)
+				{
+				audioElement.audio.volume=VolumePercentage;
+
+				}
+
+				}
+			});
+
+			$(".volumeBar .progressBar").mouseup(function(e)
+			{
+				// let VolumePercentage=e.offsetX/$(this).width();
+				// audioElement.audio.volume=VolumePercentage;
+				let VolumePercentage=e.offsetX/$(this).width();
+				if(VolumePercentage>=0&&VolumePercentage<=1)
+				{
+				audioElement.audio.volume=VolumePercentage;
+
+				}
+
+
+			});
+
+
+			$(document).mouseup(function(e)
+			{
+				mouseDown=false;
+				
+			});
+
+
+
+
 	});
+
+	// song progress changing on user behaviour
+	function timeFromOffset(mouse,progress)
+	{
+		// let percentage=mouse.offsetX / $(progress).width() *100;
+		let percentage=mouse.offsetX / $(progress).width() ;
+		// let seConds=audioElement.audio.duration * (percentage/100);
+		let seConds=audioElement.audio.duration * (percentage);
+
+		audioElement.setTime(seConds);
+
+
+
+	}
+	// changing the next song
+	function nextSong()
+	{
+		if(currentIndex==currentPlaylist.length - 1)
+		{
+			currentIndex=0;
+		}
+		else
+		{
+			currentIndex++;
+		}
+		let TrackkToplay=currentPlaylist[currentIndex];
+		setTrack(TrackkToplay,currentPlaylist,true);
+	}
 
 	function setTrack(trackId,newPlaylist,play)
 	{
 	    $.post("includes/handlers/ajax/getSongJson.php",{songId:trackId},function (data)
         {
+			// setting current index
+			currentIndex=currentPlaylist.indexOf(trackId);
+
         	let songParse=JSON.parse(data);
         	// printing the tracknae dynamically
         	$(".trackname span").text(songParse.title);
@@ -150,7 +257,7 @@ $jsonSongArray = json_encode($resultSongArray);
 					<img src="includes/assets/images/icons/pause.png" alt="pause">
 
 				</button>
-				<button class="controlButton next" title="next button">
+				<button class="controlButton next" title="next button" onclick="nextSong()">
 					<img src="includes/assets/images/icons/next.png" alt="next">
 
 				</button>

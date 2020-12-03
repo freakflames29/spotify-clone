@@ -96,7 +96,7 @@ body {
 }
 .progress {
     /*background-color: rgb(0, 255, 85);*/
-    background-color: #4f4d4d;
+    background-color:#cecece;
     height: 5px;
     border-radius: 91px;
     width:0%;

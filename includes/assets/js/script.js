@@ -1,5 +1,8 @@
 let currentPlaylist=Array();
 let audioElement;
+let mouseDown=false;
+
+let currentIndex=0;
 
 function formatTime(seconds)
 {
@@ -25,7 +28,7 @@ function formatTime(seconds)
 	return min+":"+ extraZero + sec;
 
 }
-// updating the current time
+// updating the current time and progress bar
 
 function updateTimeANDProgressbar(audio)
 {
@@ -37,6 +40,14 @@ function updateTimeANDProgressbar(audio)
 
 	let progress=audio.currentTime/audio.duration * 100;
 	$(".playbackBar .progress").css("width",progress+"%");
+
+}
+// updating the volume bar
+function updateVolume(audio)
+{
+	let VolumeP=audio.volume * 100;
+	$(".volumeBar .progress").css("width",VolumeP+"%");
+
 
 }
 
@@ -61,6 +72,14 @@ function Audio ()
 			}
 	});
 
+
+
+	// volume change eventlistner adding
+	this.audio.addEventListener("volumechange",function()
+	{
+			updateVolume(this);
+	});
+
 	// setting the track	
 	this.setTrack=function(songParse)
 	{
@@ -79,5 +98,10 @@ function Audio ()
 	this.pause=function ()
 	{
 		this.audio.pause();
+	}
+	// adding dragging time
+	this.setTime=function(secs)
+	{
+		this.audio.currentTime=secs;
 	}
 }
