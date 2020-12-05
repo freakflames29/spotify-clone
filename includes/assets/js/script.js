@@ -1,4 +1,6 @@
 let currentPlaylist = Array();
+let shufflePlaylist = Array();
+
 let audioElement;
 let mouseDown = false;
 let repeat = false;

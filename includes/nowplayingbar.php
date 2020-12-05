@@ -13,10 +13,10 @@ $jsonSongArray = json_encode($resultSongArray);
 ?>
 <script>
     $(document).ready(function() {
-        currentPlaylist = <?php echo $jsonSongArray; ?>;
+        let newPlaylist = <?php echo $jsonSongArray; ?>;
         audioElement = new Audio();
 
-        setTrack(currentPlaylist[0], currentPlaylist, false);
+        setTrack(newPlaylist[0], newPlaylist, false);
 
         updateVolume(audioElement.audio);
 
@@ -123,7 +123,7 @@ $jsonSongArray = json_encode($resultSongArray);
         } else {
             currentIndex++;
         }
-        let TrackkToplay = currentPlaylist[currentIndex];
+        let TrackkToplay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
         setTrack(TrackkToplay, currentPlaylist, true);
     }
 
@@ -150,13 +150,53 @@ $jsonSongArray = json_encode($resultSongArray);
         let iamganame = shuffle ? "shuffle-active.png" : "shuffle.png";
         $(".controlButton.shuffle img").attr("src", "includes/assets/images/icons/" + iamganame);
 
+        console.log("shuffle is"+shufflePlaylist);
+        console.log(currentPlaylist);
+
+        if (shuffle) {
+            // randomize the play list
+            shuffleArray(shufflePlaylist);
+            currentIndex = shufflePlaylist.indexOf(audioElement.currentPlaying.id);
+
+        } else {
+            // revert to original playlist
+            currentIndex = currentPlaylist.indexOf(audioElement.currentPlaying.id);
+
+        }
+
+    }
+
+    // the algo of shuffling the array
+    function shuffleArray(a) {
+        var j, x, i;
+        for (i = a.length; i; i--) {
+            j = Math.floor(Math.random() * i);
+            x = a[i - 1];
+            a[i - 1] = a[j];
+            a[j] = x;
+        }
     }
 
     function setTrack(trackId, newPlaylist, play) {
+
+        if (newPlaylist != currentPlaylist) {
+            currentPlaylist = newPlaylist;
+            shufflePlaylist = currentPlaylist.slice();
+            // shuffleArray(shufflePlaylist); that is not needed because we called shuffleArray in line 157
+        }
+
         if (play) {
             playSong();
         }
-        currentIndex = currentPlaylist.indexOf(trackId);
+        if (shuffle) {
+            // if shuffle then take the current index and put it current index is shufflePlaylist currentIndex for removing the ambigous of playing one song another time in a shuffleArray
+
+            currentIndex = shufflePlaylist.indexOf(trackId);
+
+        } else {
+            currentIndex = currentPlaylist.indexOf(trackId);
+
+        }
         pauseSong();
         // playSong();
 
