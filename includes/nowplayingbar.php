@@ -86,6 +86,7 @@ $jsonSongArray = json_encode($resultSongArray);
     });
 
     // song progress changing on user behaviour
+
     function timeFromOffset(mouse, progress) {
         // let percentage=mouse.offsetX / $(progress).width() *100;
         let percentage = mouse.offsetX / $(progress).width();
@@ -112,6 +113,8 @@ $jsonSongArray = json_encode($resultSongArray);
     // changing the next song
 
     function nextSong() {
+        // console.log(currentIndex);
+
         if (repeat == true) {
             audioElement.setTime(0);
             playSong();
@@ -124,8 +127,11 @@ $jsonSongArray = json_encode($resultSongArray);
             currentIndex++;
         }
         let TrackkToplay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
+        // console.log(currentIndex);
+        
         setTrack(TrackkToplay, currentPlaylist, true);
-    }
+
+    }   
 
     // function  for repeating the song
     function setRepeat() {
@@ -145,17 +151,19 @@ $jsonSongArray = json_encode($resultSongArray);
     }
 
     // function for suffeling the song
+
     function setShuffle() {
         shuffle = !shuffle;
         let iamganame = shuffle ? "shuffle-active.png" : "shuffle.png";
         $(".controlButton.shuffle img").attr("src", "includes/assets/images/icons/" + iamganame);
 
-        console.log("shuffle is"+shufflePlaylist);
-        console.log(currentPlaylist);
+        // console.log("shuffle is"+shufflePlaylist);
+        // console.log(currentPlaylist);
 
         if (shuffle) {
             // randomize the play list
             shuffleArray(shufflePlaylist);
+            // this for not playing a song another time when clicked next song
             currentIndex = shufflePlaylist.indexOf(audioElement.currentPlaying.id);
 
         } else {
@@ -167,6 +175,7 @@ $jsonSongArray = json_encode($resultSongArray);
     }
 
     // the algo of shuffling the array
+
     function shuffleArray(a) {
         var j, x, i;
         for (i = a.length; i; i--) {
@@ -188,6 +197,9 @@ $jsonSongArray = json_encode($resultSongArray);
         if (play) {
             playSong();
         }
+        // This is for when the song ends which song has to play
+        // if shuffle true then from shuffle playlist otherwise normal playlist
+
         if (shuffle) {
             // if shuffle then take the current index and put it current index is shufflePlaylist currentIndex for removing the ambigous of playing one song another time in a shuffleArray
 
@@ -264,6 +276,7 @@ $jsonSongArray = json_encode($resultSongArray);
         // if (play) {
         //     playSong();
         // }
+        // playSong();
     }
 
     function playSong() {

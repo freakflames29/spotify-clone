@@ -1,13 +1,29 @@
 let currentPlaylist = Array();
 let shufflePlaylist = Array();
+let tempPlaylist = Array();
 
 let audioElement;
 let mouseDown = false;
 let repeat = false;
 
+let userLoggedin;
+
 let currentIndex = 0;
 
 let shuffle=false;
+
+// now we are loading the maincontent's content dynamically
+function onPage(url)
+{
+  if(url.indexOf('?')==-1)
+  {
+
+    url+='?';
+  }
+  let endocdeurl=encodeURI(url+"&userLoggedin="+userLoggedin);
+  console.log(endocdeurl);
+  $("#mainContent").load(endocdeurl);
+}
 
 function formatTime(seconds) {
   // console.log(seconds);

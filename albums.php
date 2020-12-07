@@ -49,7 +49,7 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 <div class="trackListContainer">
 	<ul class="tracklist">
 
-		<?php
+	<?php
 		$songsIdArray = $albumOb->getSongids();
 		$i = 1;
 		foreach ($songsIdArray as $songId) {
@@ -59,7 +59,7 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 
 			echo "<li class='tracklistRow'>
 					<div class='trackCount'>
-						<img class='play' src='includes/assets/images/icons/play-white.png'>
+						<img class='play' src='includes/assets/images/icons/play-white.png' onclick='setTrack(\"".$albumSong->getsongID()."\",tempPlaylist,true)'>
 						<span class='trackNumber'>$i</span>
 
 					</div>
@@ -85,7 +85,14 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 			$i++;
 		}
 
-		?>
+	?>
+	<script >
+
+		let tempSongids='<?php echo json_encode($songsIdArray);?>';
+		tempPlaylist=JSON.parse(tempSongids);
+		// console.log(tempPlaylist);
+
+	</script>
 
 	</ul>
 

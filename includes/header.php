@@ -2,14 +2,17 @@
 include 'includes/config.php';
 include 'includes/classes/Artist.php';
 include 'includes/classes/Album.php';
+
 include 'includes/classes/Song.php';
 
 if (isset($_SESSION['UserLoggedin'])) {
     $userNAME = $_SESSION['UserLoggedin'];
+    // echo $userNAME;
+    echo "<script>userLoggedin ='".$userNAME."';</script>";
 }
-// else {
-//     header("Location:register.php");
-// }
+else {
+    header("Location:register.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -22,7 +25,7 @@ if (isset($_SESSION['UserLoggedin'])) {
 	<link rel="stylesheet" href="includes/assets/style/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="includes/assets/js/script.js"></script>
-	s
+	
 	<!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
 <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet"> -->
 

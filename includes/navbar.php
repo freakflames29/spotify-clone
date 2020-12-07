@@ -1,9 +1,11 @@
 <div id="navbarContainer">
 		<nav class="navbar">
 			<!-- logo -->
-			<a href="index.php" class="logo">
+			<!-- <a href="index.php" class="logo"> replacing with jquery dynamic page load -->
+				<span class="logo" onclick="onPage('index.php')">
 				<img src="includes/assets/images/icons/log.png" alt="logo">
-			</a>
+				</span>
+			<!-- </a> -->
 			<!-- navigation item -->
 
 			<div class="group">
