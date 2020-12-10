@@ -23,6 +23,8 @@ function onPage(url)
   let endocdeurl=encodeURI(url+"&userLoggedin="+userLoggedin);
   console.log(endocdeurl);
   $("#mainContent").load(endocdeurl);
+  $("body").scrollTop(0);
+  history.pushState(null,null,url);
 }
 
 function formatTime(seconds) {

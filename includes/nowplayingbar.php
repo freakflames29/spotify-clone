@@ -194,9 +194,7 @@ $jsonSongArray = json_encode($resultSongArray);
             // shuffleArray(shufflePlaylist); that is not needed because we called shuffleArray in line 157
         }
 
-        if (play) {
-            playSong();
-        }
+        
         // This is for when the song ends which song has to play
         // if shuffle true then from shuffle playlist otherwise normal playlist
 
@@ -246,6 +244,10 @@ $jsonSongArray = json_encode($resultSongArray);
 
 
             audioElement.setTrack(songParse);
+            
+            if (play) {
+            playSong();
+             }
             // $.post("includes/handlers/ajax/updatePlays.php",{songiD:audioElement.currentPlaying.id},function(data)
             // 	{
             // 		console.log(data);
@@ -264,6 +266,7 @@ $jsonSongArray = json_encode($resultSongArray);
 
             // playSong();
             // audioElement.play();
+
         });
         // audioElement.justrun()
         // audioElement.justrun();

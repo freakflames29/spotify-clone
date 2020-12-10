@@ -1,5 +1,9 @@
 <!-- albums page -->
-<?php include 'includes/header.php'; ?>
+
+<!-- <?php //include 'includes/header.php'; ?> -->
+<?php include 'includes/includedFiles.php'; ?>
+
+<!-- just because we changes the a link with span link there we included header and footer so we have to remove footer and header from here also other wise it will override the footer and header and we see an extra margin -->
 
 <!-- retrieving albumID -->
 <?php
@@ -98,4 +102,5 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 
 </div>
 
-<?php include 'includes/footer.php'; ?>
+<!-- <?php //include 'includes/footer.php'; ?> -->
+<!-- read line 5 why i comment this -->
