@@ -31,4 +31,21 @@ class Artist
 
         }
     }
+
+    // we are collecting the songs of an artist by this function
+
+    public function getSongids()
+    {
+        $songidQuery = mysqli_query($this->con, "SELECT id FROM songs WHERE artist='$this->id' ORDER BY plays ASC ");
+
+        // $songidQuery = mysqli_query($this->con, "SELECT artist FROM songs WHERE album='$this->id' ORDER BY albumorder ASC ");
+
+
+        $arrayOfsongs = array();
+        while ($row = mysqli_fetch_array($songidQuery)) {
+            array_push($arrayOfsongs, $row['id']);
+        }
+        return $arrayOfsongs;
+    }
+
 }

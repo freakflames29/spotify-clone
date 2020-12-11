@@ -228,6 +228,9 @@ $jsonSongArray = json_encode($resultSongArray);
                 // console.log(artistParse.name);
                 $(".artistname span").text(artistParse.name);
 
+                // we are adding onclick artis page link here
+                 $(".artistname span").attr("onclick","onPage('artist.php?id="+artistParse.id+"')");
+
             });
 
             /*For getting the artwork we will we extract album id fire a query in album table and get the artwork path and update the src attribute*/
@@ -240,6 +243,18 @@ $jsonSongArray = json_encode($resultSongArray);
                 // $(".albumlink img").attr("src",artworkParse.artworkPath);
                 $(".albumArtWork").attr("src", artworkParse.artworkPath);
 
+                // linking the artwork to the artwork
+                 $(".albumArtWork").attr("onclick","onPage('albums.php?id="+artworkParse.id+"')");
+
+
+                 // we are also linkng the song with album page
+                  $(".trackname span").attr("onclick","onPage('albums.php?id="+artworkParse.id+"')");
+
+                  // $(".trackname span").css("cursor","pointer");
+                  // $(".trackname span").hover(function()
+                  // {
+                  //   $(this).css("text-decoration","underline");
+                  // });
             });
 
 
@@ -317,10 +332,10 @@ $jsonSongArray = json_encode($resultSongArray);
                 </span>
                 <div class="trackinfo">
                     <span class="trackname">
-                        <span></span>
+                        <span role="link" tabindex="0" ></span>
                     </span>
                     <span class="artistname">
-                        <span></span>
+                        <span role="link" tabindex="0"></span>
                     </span>
 
                 </div>

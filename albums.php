@@ -63,7 +63,7 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 
 			echo "<li class='tracklistRow'>
 					<div class='trackCount'>
-						<img class='play' src='includes/assets/images/icons/play-white.png' onclick='setTrack(\"".$albumSong->getsongID()."\",tempPlaylist,true)'>
+						<img class='play'  src='includes/assets/images/icons/play-white.png' onclick='setTrack(\"".$albumSong->getsongID()."\",tempPlaylist,true)'>
 						<span class='trackNumber'>$i</span>
 
 					</div>

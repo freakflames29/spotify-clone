@@ -12,6 +12,23 @@ let currentIndex = 0;
 
 let shuffle=false;
 
+
+
+// the function is for playing the song when clicked the play button in artist page
+function ArtistPlaysong()
+{
+  // we can do this in two way 
+  // 1st way to click the play button
+  // document.querySelector(".playTheSong").click();
+  
+  // 2nd way to set The track to tempPlaylist which we are getting from when the page is loading
+
+  setTrack(tempPlaylist[0],tempPlaylist,true);
+
+}
+
+
+
 // now we are loading the maincontent's content dynamically
 function onPage(url)
 {
