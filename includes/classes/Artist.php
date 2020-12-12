@@ -31,6 +31,10 @@ class Artist
 
         }
     }
+    public function getArtistId()
+    {
+      return  $this->id;
+    }
 
     // we are collecting the songs of an artist by this function
 

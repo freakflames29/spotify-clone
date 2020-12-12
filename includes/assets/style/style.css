@@ -405,3 +405,47 @@ body {
 {
   cursor: pointer;
 }
+.searchConatiner
+{
+  background-color: #242424;
+  padding: 20px 28px;
+}
+.searchConatiner h4
+{
+  margin: 0;
+  font-weight: 300;
+}
+
+.searchConatiner .searchInput
+{
+  margin-top: 4px;
+  width: 100%;
+    background: none;
+    border: none;
+    font-size: 64px;
+    color: #fff;
+    outline: none;
+}
+.searchResultRow
+{
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.searchResultRow:hover
+{
+  background-color: #282828;
+}
+.searchResultRow .artistName span
+{
+  color: #fff;
+}
+.artistContainer h2
+{
+  text-align: center;
+}
+.noResults
+{
+  margin: 10px;
+  display: block;
+}

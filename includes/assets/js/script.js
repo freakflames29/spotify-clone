@@ -13,6 +13,10 @@ let currentIndex = 0;
 let shuffle=false;
 
 
+var timer;
+
+
+
 
 // the function is for playing the song when clicked the play button in artist page
 function ArtistPlaysong()
@@ -32,6 +36,13 @@ function ArtistPlaysong()
 // now we are loading the maincontent's content dynamically
 function onPage(url)
 {
+  //this is for when timer is on and if we move to another page our setTinmeout method in search.php redirect us to the search page so we have to clear the timer if we move to another page by openPage functon otherwise we will redirect back to search php page and the search files will be undefined
+  
+  if(timer!=null)
+  {
+    clearTimeout(timer);
+
+  }
   if(url.indexOf('?')==-1)
   {
 
