@@ -4,9 +4,21 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']))
 {
 	// echo 'CAME FROM AJAX';
 	include 'includes/config.php';
+	include 'includes/classes/User.php';
 	include 'includes/classes/Artist.php';
 	include 'includes/classes/Album.php';
 	include 'includes/classes/Song.php';
+	include 'includes/classes/Playlist.php';
+
+	if(isset($_GET['userLoggedin']))
+	{
+		$userLoggedin=new User($con,$_GET['userLoggedin']);
+	}
+	else
+	{
+		echo 'userLoggedin not specified check script.js';
+		exit();
+	}
 
 	
 }

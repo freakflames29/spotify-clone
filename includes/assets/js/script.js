@@ -32,6 +32,27 @@ function ArtistPlaysong()
 }
 
 
+// creating the createPlaylist function
+function createPlaylist()
+{
+  console.log(userLoggedin);
+  var popup=prompt("Enter the playlist name");
+  if(popup!=null)
+  {
+    // console.log("ok");
+    $.post("includes/handlers/ajax/CreatePlaylist.php",{ name : popup , username : userLoggedin }).done(function(error)
+    {
+      if(error!="")
+      {
+        alert(error);
+      }
+
+      location.reload();
+      openPage("yourMusic.php");
+    });
+  }
+}
+
 
 // now we are loading the maincontent's content dynamically
 function onPage(url)
@@ -53,6 +74,7 @@ function onPage(url)
   $("#mainContent").load(endocdeurl);
   $("body").scrollTop(0);
   history.pushState(null,null,url);
+  // history.pushState(null,null,endocdeurl);
 }
 
 function formatTime(seconds) {

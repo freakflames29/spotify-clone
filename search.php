@@ -5,6 +5,7 @@ include 'includes/includedFiles.php';
 if (isset($_GET['term']))
 {
 	$term=urldecode($_GET['term']);
+	// $term= mysqli_real_escape_string( $con,urldecode($_GET['term']));
 	
 }
 else {
@@ -15,7 +16,7 @@ else {
 
 <div class="searchConatiner">
 	<h4>Search albums,songs or artist</h4>
-	<input type="text" value="<?php echo $term ?>" class="searchInput" placeholder="Start typing..." onfocus="this.value = this.value;">
+	<input type="text" value="<?php echo $term ?>" class="searchInput" placeholder="Start typing..." onfocus="this.value = this.value">
 </div>
 <script>
 	

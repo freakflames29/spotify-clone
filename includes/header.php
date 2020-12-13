@@ -4,17 +4,8 @@ include 'includes/classes/Artist.php';
 include 'includes/classes/Album.php';
 
 include 'includes/classes/Song.php';
-
-if (isset($_SESSION['UserLoggedin'])) {
-    $userNAME = $_SESSION['UserLoggedin'];
-    // echo $userNAME;
-    echo "<script>userLoggedin ='".$userNAME."';</script>";
-}
-else {
-    header("Location:register.php");
-}
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +19,22 @@ else {
 	
 	<!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
 <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet"> -->
+
+<?php
+
+if (isset($_SESSION['UserLoggedin'])) {
+    $userNAME = $_SESSION['UserLoggedin'];
+    // echo $userNAME;
+    echo "<script>userLoggedin ='".$userNAME."' ;console.log(userLoggedin);</script>";
+}
+else {
+    header("Location:register.php");
+}
+
+?>
+
+
+
 
 </head>
 
