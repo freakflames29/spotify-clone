@@ -47,12 +47,34 @@ function createPlaylist()
         alert(error);
       }
 
-      location.reload();
+      // location.reload();
       openPage("yourMusic.php");
     });
   }
 }
 
+// delete playlist function
+function deletePlaylist(playlistId)
+{
+    let confirmDelete=confirm("Are you want to delete the playlist?");
+    if(confirmDelete)
+    {
+      // console.log("DLETE playlist");
+
+      // now we are going to do ajax call to delete the playlist
+      $.post("includes/handlers/ajax/deletePlaylist.php",{playlistId:playlistId}).
+      done(function(error)
+      {
+        if(error!="")
+        {
+          alert(error);
+
+        }
+        onPage("yourMusic.php");
+      });
+
+    }
+}
 
 // now we are loading the maincontent's content dynamically
 function onPage(url)
