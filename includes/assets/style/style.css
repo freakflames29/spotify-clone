@@ -465,3 +465,34 @@ border: 3px solid #282828;
 border-radius: 10px;
 
 }
+
+/*option menu style*/
+.optionsMenu
+{
+  background-color: #282828;
+width: 191px;
+border: 2px solid #282828;
+border-radius: 4px;
+z-index: 1000;
+position: fixed;
+display: none;
+
+}
+
+.optionsMenu .item
+{
+      width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    color: rgb(147, 147, 147);
+    height: 40px;
+    cursor: pointer;
+
+}
+
+.optionsMenu .item:hover
+{
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
+}

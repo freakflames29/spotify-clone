@@ -76,6 +76,48 @@ function deletePlaylist(playlistId)
     }
 }
 
+// showing the options when the tripple dot button is clicked
+function showOptions(button)
+{
+  let menu=$(".optionsMenu");
+  let menuWidth=menu.width();
+  let scrolltop=$(window).scrollTop();
+  let elementWidth=$(button).offset().top;
+
+  let top=elementWidth-scrolltop;
+  let left=$(button).position().left;
+
+  menu.css({"top":top+"px","left":+left-menuWidth+"px","display":"inline"});
+}
+
+
+// hiding the menu function
+// WE ARE gouing to hide that on scroll and also on off click
+
+// offclick hide
+$(document).click(function(e)
+{
+  var target=$(e.target);
+  if(!target.hasClass("item") && !target.hasClass("optionButton"))
+  {
+      hideMenu();
+  }
+});
+
+$(window).scroll(function()
+{
+  hideMenu();
+});
+function hideMenu()
+{
+  let Hidemenu=$(".optionsMenu");
+  if(Hidemenu.css("display")!="none")
+  {
+    Hidemenu.css("display","none");
+  }
+}
+
+
 // now we are loading the maincontent's content dynamically
 function onPage(url)
 {

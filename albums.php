@@ -75,7 +75,7 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 					</div>
 
 					<div class='trackOptions'>
-						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button'>
+						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button' onclick='showOptions(this)'>
  					</div>
 
  					<div class='trackDuration'>
@@ -104,3 +104,13 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 
 <!-- <?php //include 'includes/footer.php'; ?> -->
 <!-- read line 5 why i comment this -->
+
+
+<!-- option buttion -->
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+	<div class="item">Add to playlist</div>
+	<div class="item">Item1</div>
+	<div class="item">Item2</div>
+
+</nav>
