@@ -66,6 +66,25 @@ class Playlist
         }
         return $arrayOfsongs;
     }
+
+    // this function will return the playlists name
+    public static function getPlaylistDropdown($con,$username)
+    {
+    	$dropdown='<select class="item playlist paddinglist">
+					<option value="">Add to playlist</option>';
+
+		$playlist_Name_Id_fetch_query=mysqli_query($con,"SELECT id,name FROM playlists WHERE owner ='$username'");
+		while ($row=mysqli_fetch_array($playlist_Name_Id_fetch_query))
+		{
+			$id=$row['id'];
+			$name=$row['name'];
+
+			$dropdown=$dropdown."<option value='$id'>$name</option>";
+		    
+		}
+
+		return $dropdown."</select>";
+    }
 }
 
  ?>

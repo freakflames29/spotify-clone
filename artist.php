@@ -64,7 +64,8 @@ $artistOb=new Artist($con,$artistId);
 					</div>
 
 					<div class='trackOptions'>
-						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button'>
+							<input type='hidden' class='songId' value='".$albumSong->getsongID()."'>
+						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button' onclick='showOptions(this)'>
  					</div>
 
  					<div class='trackDuration'>
@@ -121,3 +122,15 @@ while ($row = mysqli_fetch_array($albumQuery)) {
 ?>
 
 </div>
+
+
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+	<!-- <div class="item">Add to playlist</div> -->
+	<!-- <select class="item playlist">
+		<option value="">Add to playlist</option>
+		</select> -->
+		<?php echo Playlist::getPlaylistDropdown($con,$userLoggedin->getuserName()); ?>
+
+
+</nav>

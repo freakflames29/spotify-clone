@@ -63,11 +63,10 @@ $ownerOb=new User($con,$playlistOb->getOwnerName());//creating owner object
 
 					</div>
 
-					<div class='trackInfo'>
-					<span class='trackName'>".$PlaylistSong->getsongTitle()."</span>
-					<span class='SongartistName'>".$PlaylistArtist->getName()."</span>
-
-					</div>
+					<div class='trackOptions'>
+							<input type='hidden' class='songId' value='".$PlaylistSong->getsongID()."'>
+						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button' onclick='showOptions(this)'>
+ 					</div>
 
 					<div class='trackOptions'>
 						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button'>
@@ -99,3 +98,16 @@ $ownerOb=new User($con,$playlistOb->getOwnerName());//creating owner object
 
 <!-- <?php //include 'includes/footer.php'; ?> -->
 <!-- read line 5 why i comment this -->
+
+
+
+<nav class="optionsMenu">
+	<input type="hidden" class="songId">
+	<!-- <div class="item">Add to playlist</div> -->
+	<!-- <select class="item playlist">
+		<option value="">Add to playlist</option>
+		</select> -->
+		<?php echo Playlist::getPlaylistDropdown($con,$userLoggedin->getuserName()); ?>
+
+
+</nav>

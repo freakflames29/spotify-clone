@@ -75,6 +75,7 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 					</div>
 
 					<div class='trackOptions'>
+							<input type='hidden' class='songId' value='".$albumSong->getsongID()."'>
 						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button' onclick='showOptions(this)'>
  					</div>
 
@@ -109,8 +110,11 @@ $artistName = $albumOb->getArtist(); //new Artist($this->con, $this->artist);
 <!-- option buttion -->
 <nav class="optionsMenu">
 	<input type="hidden" class="songId">
-	<div class="item">Add to playlist</div>
-	<div class="item">Item1</div>
-	<div class="item">Item2</div>
+	<!-- <div class="item">Add to playlist</div> -->
+	<!-- <select class="item playlist">
+		<option value="">Add to playlist</option>
+		</select> -->
+		<?php echo Playlist::getPlaylistDropdown($con,$userLoggedin->getuserName()); ?>
+
 
 </nav>

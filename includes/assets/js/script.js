@@ -79,7 +79,9 @@ function deletePlaylist(playlistId)
 // showing the options when the tripple dot button is clicked
 function showOptions(button)
 {
+  let songid_is=$(button).prevAll(".songId").val();//getting the song val 
   let menu=$(".optionsMenu");
+  menu.find(".songId").val(songid_is);
   let menuWidth=menu.width();
   let scrolltop=$(window).scrollTop();
   let elementWidth=$(button).offset().top;
@@ -89,6 +91,41 @@ function showOptions(button)
 
   menu.css({"top":top+"px","left":+left-menuWidth+"px","display":"inline"});
 }
+
+
+
+// adding the song to playlist and database
+$(document).on("change","select.playlist",function()
+{
+  var select=$(this);
+  var playList_id=select.val();
+  var song_id=select.prev(".songId").val();
+
+  // console.log("playlistID: "+playList_id);
+  // console.log("songID: "+song_id);
+
+  $.post("includes/handlers/ajax/addToPlaylist.php",{
+
+        playlistID:playList_id,
+        songID:song_id
+
+
+  }).done(function(data)
+  {
+
+    console.log(data);
+    hideMenu();
+    select.val("");
+
+  });
+
+});
+
+
+
+
+
+
 
 
 // hiding the menu function
