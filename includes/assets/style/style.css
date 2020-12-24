@@ -505,3 +505,41 @@ background: none;
 font-size: 14px;
 text-indent: -1px;
 }
+
+.userInfo h1
+{
+  text-align: center;
+}
+.userDetails
+{
+  padding: 20px;
+}
+.userDetails .container h1
+{
+  text-align: center;
+}
+.userDetails .container input,
+.userDetails .container .button
+{
+  display: block;
+  margin: 16px auto;
+
+}
+.userDetails .container input
+{
+    background-color: #1f1f1f;
+    height: 40px;
+    word-break: 100%;
+    width: 96%;
+    border: aquamarine;
+    font-size: 18px;
+    padding: 0 20px;
+    outline: none;
+    border-radius: 150px;
+}
+.userDetails .container .mesage
+{
+  color: #00ff55;
+  font-size: 15px;
+  margin-left: 17px;
+}

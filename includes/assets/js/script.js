@@ -75,6 +75,59 @@ function deletePlaylist(playlistId)
 
     }
 }
+// logout function
+
+
+function logout()
+{
+  $.post("includes/handlers/ajax/logout.php",function()
+  {
+    location.reload();
+  });
+}
+
+
+
+
+// deleting songs from playlist page
+
+function removeSongFromPlaylist(button,playlistID)
+{
+  var song_ID=$(button).prevAll(".songId").val();
+
+  // ajax call
+  $.post("includes/handlers/ajax/removeSongFromPlaylist.php",
+
+      {
+        playlistID:playlistID,
+        songID:song_ID }//data
+
+    ).done(function(data)
+    {
+        if(data)
+        {
+          alert(data);
+        }
+        onPage("playlist.php?id="+playlistID);
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // showing the options when the tripple dot button is clicked
 function showOptions(button)
@@ -91,7 +144,41 @@ function showOptions(button)
 
   menu.css({"top":top+"px","left":+left-menuWidth+"px","display":"inline"});
 }
+// updating the email value
+function updateEmail(emailClass)
+{
+  let emailValue=$("."+emailClass).val();
+  $.post("includes/handlers/ajax/UpdateEmail.php",{emailIs:emailValue,username:userLoggedin}).done(function(data)
+  {
+    $("."+emailClass).nextAll(".mesage").text(data);
+    let timer=setTimeout(function()
+    {
 
+    $("."+emailClass).nextAll(".mesage").text("");
+
+    },2000);
+    // clearTimeout(timer);
+
+  });
+}
+// updating the passwords
+function updatePassword(oldPasswordclass,newPasswordClass1,newPasswordClass2)
+{
+  let oldPassword=$("."+oldPasswordclass).val();
+  let newPassword1=$("."+newPasswordClass1).val();
+  let newPassword2=$("."+newPasswordClass2).val();
+
+  $.post("includes/handlers/ajax/UpdatePassword.php",{oldPassword:oldPassword,newPassword1:newPassword1,newPassword2:newPassword2,username:userLoggedin}).done(function(data)
+  {
+
+    $("."+oldPasswordclass).nextAll(".mesage").text(data);
+
+
+  });
+
+
+
+}
 
 
 // adding the song to playlist and database

@@ -1,9 +1,10 @@
 <?php
 include 'includes/config.php';
+include 'includes/classes/User.php';
 include 'includes/classes/Artist.php';
 include 'includes/classes/Album.php';
-
 include 'includes/classes/Song.php';
+include 'includes/classes/Playlist.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,9 +24,12 @@ include 'includes/classes/Song.php';
 <?php
 
 if (isset($_SESSION['UserLoggedin'])) {
-    $userNAME = $_SESSION['UserLoggedin'];
+    // $userNAME = $_SESSION['UserLoggedin'];
+    $userLoggedin=new User($con,$_SESSION['UserLoggedin']);
+    $username=$userLoggedin->getuserName();
     // echo $userNAME;
-    echo "<script>userLoggedin ='".$userNAME."' ;console.log(userLoggedin);</script>";
+    // echo "<script>userLoggedin ='".$userNAME."' ;console.log(userLoggedin);</script>";
+    echo "<script>userLoggedin ='$username';console.log(userLoggedin);</script>";
 }
 else {
     header("Location:register.php");

@@ -30,7 +30,7 @@
 
 				<div class="navitem">
 					<!-- <a href="profile.php" class="navitemLink">Your profile</a> -->
-					<span  role="link" tabindex="0" onclick="onPage('profile.php')"  class="navitemLink">Your profile</a>
+					<span  role="link" tabindex="0" onclick="onPage('settings.php')"  class="navitemLink"><?php echo $userLoggedin->getuserName();?></a>
 				</div>
 
 			</div>

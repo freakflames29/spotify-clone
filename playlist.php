@@ -62,15 +62,17 @@ $ownerOb=new User($con,$playlistOb->getOwnerName());//creating owner object
 						<span class='trackNumber'>$i</span>
 
 					</div>
+					<div class='trackInfo'>
+					<span class='trackName'>".$PlaylistSong->getsongTitle()."</span>
+					<span class='SongartistName'>".$PlaylistArtist->getName()."</span>
+
+					</div>
 
 					<div class='trackOptions'>
 							<input type='hidden' class='songId' value='".$PlaylistSong->getsongID()."'>
 						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button' onclick='showOptions(this)'>
  					</div>
 
-					<div class='trackOptions'>
-						<img class='optionButton' src='includes/assets/images/icons/more.png' alt='more button'>
- 					</div>
 
  					<div class='trackDuration'>
 
@@ -108,6 +110,7 @@ $ownerOb=new User($con,$playlistOb->getOwnerName());//creating owner object
 		<option value="">Add to playlist</option>
 		</select> -->
 		<?php echo Playlist::getPlaylistDropdown($con,$userLoggedin->getuserName()); ?>
+		<div class="item" onclick="removeSongFromPlaylist(this,<?php echo $playlistID;?>)">Remove from playlist</div>
 
 
 </nav>
